@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Metallon-Timer</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/timer.css">
+	<style type="text/css">
+		@media (min-width: 858px) {
+		    .logo {
+				font-family: 'Front';
+				color: white;
+				font-size: 100px;
+			}
+			.date {
+				font-family: 'Iron';
+				color: white;
+				font-size: 200px;
+			}
+	    }
+
+	    @media (min-width: 780px) {
+	      .logo {
+				font-family: 'Front';
+				color: white;
+				font-size: 100px;
+			}
+			.date {
+				font-family: 'Iron';
+				color: white;
+				font-size: 200px;
+			}
+	    }
+
+	    @media (min-width: 702px) {
+	      .logo {
+				font-family: 'Front';
+				color: white;
+				font-size: 100px;
+			}
+			.date {
+				font-family: 'Iron';
+				color: white;
+				font-size: 200px;
+			}
+	    }
+
+	    @media (min-width: 724px) {
+	      .logo {
+				font-family: 'Front';
+				color: white;
+				font-size: 75px;
+			}
+			.date {
+				font-family: 'Iron';
+				color: white;
+				font-size: 100px;
+			}
+	    }
+
+	    @media (max-width: 623px) {
+	      .logo {
+				font-family: 'Front';
+				color: white;
+				font-size: 100px;
+			}
+			.date {
+				font-family: 'Iron';
+				color: white;
+				font-size: 200px;
+			}
+	    }
+		@font-face {
+		    font-family: Dragon;
+		    src: url(fonts/dragonforce/DragonForcE.ttf);
+		}
+		@font-face {
+		    font-family: Iron;
+		    src: url(fonts/iron/Iron_H_Metal_Outline.ttf);
+		}
+		@font-face {
+		    font-family: ironman;
+		    src: url(fonts/iron-maiden/maiden.ttf);
+		}
+		@font-face {
+		    font-family: Front;
+		    src: url(fonts/lj-design-studios_the-frontman/The_Frontman.ttf);
+		}
+		@font-face {
+		    font-family: Macabre;
+		    src: url(fonts/metal-macabre/MetalMacabre.ttf);
+		}
+	</style>
+</head>
+
+<body>
+	<div class="text-vertical-center">
+		<div class='logo'>
+			Metallon
+		</div>
+		<div class='date'>
+			-2K18
+		</div>
+		<!-- <img class="img-responsive center-block" src="assets/LogoWhite.png" width="800">
+		 --><div id="timer">
+			<div id="days"></div>
+			<div id="hours"></div>
+			<div id="minutes"></div>
+			<div id="seconds"></div>
+		</div>
+		<br>
+		<a role="button" class="ghost-button ghost-button-rounded-corners" href="home.html">Continue to Website</a>
+	</div>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript">
+
+		function makeTimer() {
+
+			var endTime = new Date("February 26, 2018 12:00:00 PDT");			
+			var endTime = (Date.parse(endTime)) / 1000;
+
+			var now = new Date();
+			var now = (Date.parse(now) / 1000);
+
+			var timeLeft = endTime - now;
+
+			var days = Math.floor(timeLeft / 86400); 
+			var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
+			var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
+			var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
+
+			if (hours < "10") { hours = "0" + hours; }
+			if (minutes < "10") { minutes = "0" + minutes; }
+			if (seconds < "10") { seconds = "0" + seconds; }
+
+			$("#days").html(days + "<span>Days</span>");
+			$("#hours").html(hours + "<span>Hours</span>");
+			$("#minutes").html(minutes + "<span>Minutes</span>");
+			$("#seconds").html(seconds + "<span>Seconds</span>");		
+
+		}
+		setInterval(function() { makeTimer(); }, 1000);
+	</script>
+</body>
+</html>
